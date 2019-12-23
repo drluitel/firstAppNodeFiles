@@ -1,20 +1,20 @@
-//(function (exports, require, module, __filename, __dirname) {
 
-    //console.log(require);
-    //console.log(exports);
-    //console.log(module);
-    console.log(__dirname);
-    console.log(__filename);
-
+const EventEmitter = require('events');  // this s a clsss
 var url = "http:// mylogger.io/log" ;
 
-function log(message){
-    // send the https request
-    console.log(message);
+class Logger extends EventEmitter{
+
+    log(message){
+       // send the https request
+        console.log(message);
+        // Raised an event 
+        this.emit( 'logging', {data:'message'}); // Making the noice, produce - signalling
+    }
+
 
 }
 
-module.exports = log; 
+
+module.exports = Logger; 
 
 
-//})
